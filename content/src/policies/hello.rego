@@ -3,18 +3,18 @@ package policies.hello
 # default to a "closed" system, 
 # only grant access when explicitly granted
 
-default allowed = false
-default visible = false
-default enabled = false
+default allowed := false
+default visible := false
+default enabled := false
 
-allowed {
+allowed if {
     input.role == "web-admin"
 }
 
-enabled {
+enabled if {
     visible
 }
 
-visible {
+visible if {
     input.app == "web-console"
 }
